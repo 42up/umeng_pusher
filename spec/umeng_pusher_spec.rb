@@ -1,3 +1,5 @@
+require "pry"
+
 RSpec.describe UmengPusher do
   it "has a version number" do
     expect(UmengPusher::VERSION).not_to be nil

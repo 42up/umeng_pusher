@@ -5,7 +5,6 @@ module UmengPusher
     extend self
 
     def send_params(platform, options)
-
       params = {
         "appkey" => UmengPusher.appkey(platform),
         "timestamp" => Time.now.to_i.to_s,
@@ -17,7 +16,7 @@ module UmengPusher
         "policy" => { # 可选，定时任务策略
           "start_time" => options[:start_time],
           "expire_time" => options[:expire_time],
-          "max_send_num" => options[:max_send_num],
+          "max_send_num" => options[:max_send_num], # 可选，发送限速，每秒发送的最大条数。最小值1000 开发者发送的消息如果有请求自己服务器的资源，可以考虑此参数
           "out_biz_no" => options[:out_biz_no], # 强烈建议开发者在发送任务类消息时填写这个字段，友盟服务端会根据这个字段对消息做去重避免重复发送、根据业务推送内容填写，out_biz_no只对任务类消息有效
         },
         "production_mode" => UmengPusher.production_mode,
