@@ -22,7 +22,7 @@ RSpec.describe UmengPusher do
       end
     end
 
-    it "config should be ok" do
+    it "config should be ok", focus: true do
       expect(UmengPusher.appkey("ios")).to eq(@ios_appkey)
       expect(UmengPusher.app_master_secret("ios")).to eq(@ios_app_master_secret)
 
